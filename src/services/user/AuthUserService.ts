@@ -3,8 +3,8 @@ import prismaClient from "../../prisma";
 import { sign } from 'jsonwebtoken';
 
 interface AuthRequest{
-    email: String
-    password: String
+    email: string
+    password: string
 }
 
 
@@ -13,7 +13,7 @@ class AuthUserService{
         //verificar se o email existe
         const user = await prismaClient.user.findFirst({
             where: {
-                email: `${email}`
+                email: email
             }
         })
 
@@ -22,7 +22,7 @@ class AuthUserService{
         }
 
         // Verificar se a senha está correta
-        const passwordMatch = await compare(`${password}`, user.password)
+        const passwordMatch = await compare(password, user.password)
 
         if(!passwordMatch){
             throw new Error("User/password incorrect")
