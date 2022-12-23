@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev src/server.ts"
+    "dev": "ts-node-dev src/server.ts",
+    "build": "rimraf ./dist && tsc"
+    "start": "node server.js"
   },
   "devDependencies": {
     "@types/bcryptjs": "2.4.2",
@@ -24,6 +26,7 @@
     "express-async-errors": "3.1.1",
     "jsonwebtoken": "8.5.1",
     "multer": "^1.4.5-lts.1",
+    "rimraf": "^3.0.2",
     "prisma": "3.9.2"
   }
 }
